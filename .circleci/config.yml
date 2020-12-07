@@ -10,6 +10,6 @@ jobs:
     
     steps: 
       - run: sudo apt-get update -y
-      - run: sudo apt-get install -y openmpi-common
+      - run: sudo apt-get install -y openmpi-common libopenmpi-dev
       - run: sudo pip3 install mpi4py
       - run: mpiexec -mca btl ^openib -np 3 python3 -c 'from mpi4py import MPI; print(MPI.COMM_WORLD.Get_size(), MPI.COMM_WORLD.Get_rank())'
